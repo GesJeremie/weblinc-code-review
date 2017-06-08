@@ -1,4 +1,4 @@
-[![weblinc.png](https://s15.postimg.org/b3u1lrlkb/weblinc.png)](https://postimg.org/image/r22rbwfs7/)
+[![weblinc](https://www.weblinc.com/wp-content/themes/weblinc2014/img/Scientist-3.svg)](https://www.weblinc.com/)
 
 # Checklist JS review
 
