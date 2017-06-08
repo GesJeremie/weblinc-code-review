@@ -166,6 +166,30 @@ function noProduct($productId) {}
 function isProductExists($productId) {}
 ````
 
+#### 1.5 Does each function doesn't have more than 3 arguments ?
+
+
+````javascript
+/**
+ * BAD
+ */
+function killUser(id, name, level, email, birthday) {}
+````
+
+````javascript
+/**
+ * GOOD
+ */
+
+function killUser(id, attributes) {}
+
+/**
+ * Where attributes is an object
+ * {name: "peter", level: 20, email: "peter@gmail.com", birthday: null}
+ */
+````
+
+
 
 ### 2. Comments
 
@@ -204,16 +228,186 @@ function destroy() {
 }
 ````
 
+#### 2.1 Does the module contains a global description comment ?
+
+````javascript
+/**
+ * BAD
+ * Browse Actions module
+ */
+WEBLINC.registerModule('browseActions', (function () {}));
+````
+
+````javascript
+/**
+ * GOOD
+ * On browse products section (viewport mobile), this module
+ * is in charge to open the drawer's filters.
+ */
+WEBLINC.registerModule('browseActions', (function () {}));
+````
+
+### 3. Variables
+
+#### Descriptive Variables
+
+````javascript
+/**
+ * BAD
+ */
+var prodNb = 0;
+````
 
 
-- Does each complex conditions are abstracted ?
-- Does the module contains a global description comment 
-- No for loop
-- Only one level of indentation (max 2)
-- Descriptive Variables
-- One Liner return if (_.isEmpty($populatedBoxes)) { return; }
-- No business logic in the variables
-- Defensive IF     if (! compareSlotAvailable()) {
-                displayCompareFullMessage();
-                return false;
-            }
+````javascript
+/**
+ * GOOD
+ */
+var countProducts = 0;
+````
+
+
+#### No business logic in the variables
+
+````javascript
+/**
+ * BAD
+ */
+var $products = $scope.is('.pagination-results') ? $('.product-grid__cell', $scope) : $('.product-grid__cell', $('.view', $scope)),
+````
+
+````javascript
+/**
+ * GOOD
+ */
+var $products = getProducts();
+````
+
+### 4. Conditions
+
+#### Does each complex conditions are abstracted ?
+
+````javascript
+/**
+ * BAD
+ */
+function showFunnyPictureOnMobile() {
+  
+  // If it's on mobile
+  if (Modernizr.touch && $(window).width() < 768) {
+    $('#funny-picture').attr('src', 'funny-picture.jpg');
+  }
+
+}
+````
+
+````javascript
+/**
+ * GOOD
+ */
+function showFunnyPictureOnMobile() {
+  
+  if (isMobile()) {
+    $('#funny-picture').attr('src', 'funny-picture.jpg')
+  }
+
+}
+
+function isMobile() {
+  return Modernizr.touch && $(window).width() < 768;
+}
+````
+
+#### Does each conditions are defensive?
+
+````javascript
+/**
+ * BAD
+ */
+function isDead(zombie) {
+
+  if (!zombie.dead) {
+
+    if (zombie.health <= 0) {
+      return true;
+    } else {
+      return false;
+    }
+
+  } else {
+    return false;
+  }
+
+}
+````
+
+````javascript
+/**
+ * GOOD
+ */
+function isDead(zombie) {
+  
+  if (zombie.dead) {
+    return true;
+  }
+
+  if (zombie.health <= 0) {
+    return true;
+  }
+
+  return false;
+
+}
+````
+
+### 5. jQuery selectors
+
+#### Does each jQuery selectors are abstracted?
+
+
+````javascript
+/**
+ * BAD
+ */
+function init() {
+  $('.title', $scope).find('span a').remove();
+}
+````
+
+````javascript
+/**
+ * GOOD
+ */
+function init() {
+  getTitleLinks().remove();
+}
+
+function getTitleLinks() {
+  return $('.title', $scope).find('span a');
+}
+````
+
+#### Does each jQuery selectors are scoped?
+
+
+````javascript
+/**
+ * BAD
+ */
+function init() {
+  $('.title', $scope).find('span a').remove();
+}
+````
+
+````javascript
+/**
+ * GOOD
+ */
+function init() {
+  getTitleLinks().remove();
+}
+
+function getTitleLinks() {
+  return $('.title', $scope).find('span a');
+}
+````
