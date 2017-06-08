@@ -1,26 +1,26 @@
 # Checklist JS review
 
 - [1. Comments](#1-comments)
-  - [1.1 Are the comments written useful?](#11-are-the-comments-written-useful)
-  - [1.2 Does the module contain a global description comment?](#12-does-the-module-contain-a-global-description-comment)
+  - [1.1 Are the comments written useful?](#11-are-the-comments-written-useful--back-top)
+  - [1.2 Does the module contain a global description comment?](#12-does-the-module-contain-a-global-description-comment--back-top)
 
 - [2. Variables](#2-variables)
-  - [2.1 Do the variables descriptive enough?](#21-do-the-variables-descriptive-enough)
-  - [2.2 Do the variables contain business logic?](#22-do-the-variables-contain-business-logic)
+  - [2.1 Do the variables descriptive enough?](#21-do-the-variables-descriptive-enough--back-top)
+  - [2.2 Do the variables contain business logic?](#22-do-the-variables-contain-business-logic--back-top)
   
 - [3. Conditions](#3-conditions)
-  - [3.1 Is each complex condition abstracted?](#31-is-each-complex-condition-abstracted)
-  - [3.2 Is each condition defensive?](#32-is-each-condition-defensive)
+  - [3.1 Is each complex condition abstracted?](#31-is-each-complex-condition-abstracted--back-top)
+  - [3.2 Is each condition defensive?](#32-is-each-condition-defensive--back-top)
   
 - [4. jQuery Selectors](#4-jquery-selectors)
-  - [4.1 Is each jQuery selector abstracted?](#41-is-each-jquery-selector-abstracted)
-  - [4.2 Is each jQuery selector scoped?](#42-is-each-jquery-selector-scoped)
+  - [4.1 Is each jQuery selector abstracted?](#41-is-each-jquery-selector-abstracted--back-top)
+  - [4.2 Is each jQuery selector scoped?](#42-is-each-jquery-selector-scoped--back-top)
   
 - [5. Functions](#5-functions)
   - [5.1 Does each function do one thing and only one thing and doesn’t contain more than ~15 lines ?](#51-does-each-function-do-one-thing-and-only-one-thing-and-doesnt-contain-more-than-15-lines-)
   - [5.2 Is each anonymous function abstracted ?](#52-is-each-anonymous-function-abstracted-)
   - [5.3 Is each function name descriptive enough ?](#53-is-each-function-name-descriptive-enough-)
-  - [5.4 Does each function have strictly less than 4 arguments?](#54-does-each-function-have-strictly-less-than-4-arguments)
+  - [5.4 Does each function have strictly less than 4 arguments?](#54-does-each-function-have-strictly-less-than-4-arguments--back-top)
 
 ## 1. Comments
 
