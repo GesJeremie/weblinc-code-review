@@ -1,5 +1,3 @@
-[![weblinc](https://www.weblinc.com/wp-content/themes/weblinc2014/img/Scientist-3.svg)](https://www.weblinc.com/)
-
 # Checklist JS review
 
 - [1. Comments](#1-comments)
