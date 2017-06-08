@@ -1,3 +1,5 @@
+[![weblinc.png](https://s15.postimg.org/b3u1lrlkb/weblinc.png)](https://postimg.org/image/r22rbwfs7/)
+
 # Checklist JS review
 
 - [1. Comments](#1-comments)
