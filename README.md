@@ -1,7 +1,7 @@
 # Checklist JS review
 
 
-### 1. Functions
+## 1. Functions
 
 #### 1.1 Does each function do one thing and only one thing ?
 
