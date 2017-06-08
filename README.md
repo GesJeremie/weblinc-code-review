@@ -37,7 +37,7 @@ function destroy() {
 }
 ````
 
-#### 1.2 Does the module contains a global description comment ?
+#### 1.2 Does the module contain a global description comment?
 
 ````javascript
 /**
