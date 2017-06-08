@@ -216,7 +216,7 @@ function init() {
 }
 
 function getTitleLinks() {
-    $('.title', $scope).find('span a').remove();
+    $('.title', $scope).find('span a');
 }
 ````
 
