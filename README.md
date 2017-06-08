@@ -57,7 +57,7 @@ WEBLINC.registerModule('browseActions', (function () {}));
 ````
 
 
-### 2. Variables
+## 2. Variables
 
 #### 2.1 Descriptive Variables
 
@@ -94,7 +94,7 @@ var $products = getProducts();
 ````
 
 
-### 3. Conditions
+## 3. Conditions
 
 #### 3.1 Does each complex conditions are abstracted ?
 
@@ -172,7 +172,7 @@ function isDead(zombie) {
 ````
 
 
-### 4. jQuery selectors
+## 4. jQuery selectors
 
 #### 4.1 Does each jQuery selectors are abstracted?
 
