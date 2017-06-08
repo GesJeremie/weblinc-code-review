@@ -24,7 +24,7 @@
 
 ## 1. Comments
 
-#### 1.1 Are the comments written useful? 
+#### 1.1 Are the comments written useful? [↑ Back top](#checklist-js-review)
 
 ````javascript
 /**
