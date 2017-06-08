@@ -1,9 +1,232 @@
 # Checklist JS review
 
+## 1. Comments
 
-## 1. Functions
+#### 1.1 Are the comments written useful ? 
 
-#### 1.1 Does each function do one thing and only one thing ?
+
+````javascript
+/**
+ * BAD
+ */
+
+/**
+ * Destroy the module
+ */
+function destroy() {
+  showSubMenus();
+  removeIconMinusHeadings();
+  shutdownEventCollapse();
+  initialized = false;
+}
+````
+
+````javascript
+/**
+ * GOOD
+ */
+
+/**
+ * Go back to clean state (before the module was injected)
+ */
+function destroy() {
+  showSubMenus();
+  removeIconMinusHeadings();
+  shutdownEventCollapse();
+  initialized = false;
+}
+````
+
+#### 1.2 Does the module contains a global description comment ?
+
+````javascript
+/**
+ * BAD
+ * Browse Actions module
+ */
+WEBLINC.registerModule('browseActions', (function () {}));
+````
+
+````javascript
+/**
+ * GOOD
+ * On browse products section (viewport mobile), this module
+ * is in charge to open the drawer's filters.
+ */
+WEBLINC.registerModule('browseActions', (function () {}));
+````
+
+
+### 2. Variables
+
+#### 2.1 Descriptive Variables
+
+````javascript
+/**
+ * BAD
+ */
+var prodNb = 0;
+````
+
+
+````javascript
+/**
+ * GOOD
+ */
+var countProducts = 0;
+````
+
+
+#### 2.2 No business logic in the variables
+
+````javascript
+/**
+ * BAD
+ */
+var $products = $scope.is('.pagination-results') ? $('.product-grid__cell', $scope) : $('.product-grid__cell', $('.view', $scope)),
+````
+
+````javascript
+/**
+ * GOOD
+ */
+var $products = getProducts();
+````
+
+
+### 3. Conditions
+
+#### 3.1 Does each complex conditions are abstracted ?
+
+````javascript
+/**
+ * BAD
+ */
+function showFunnyPictureOnMobile() {
+  
+  // If it's on mobile
+  if (Modernizr.touch && $(window).width() < 768) {
+    $('#funny-picture').attr('src', 'funny-picture.jpg');
+  }
+
+}
+````
+
+````javascript
+/**
+ * GOOD
+ */
+function showFunnyPictureOnMobile() {
+  
+  if (isMobile()) {
+    $('#funny-picture').attr('src', 'funny-picture.jpg')
+  }
+
+}
+
+function isMobile() {
+  return Modernizr.touch && $(window).width() < 768;
+}
+````
+
+#### 3.2 Does each conditions are defensive?
+
+````javascript
+/**
+ * BAD
+ */
+function isDead(zombie) {
+
+  if (!zombie.dead) {
+
+    if (zombie.health <= 0) {
+      return true;
+    } else {
+      return false;
+    }
+
+  } else {
+    return false;
+  }
+
+}
+````
+
+````javascript
+/**
+ * GOOD
+ */
+function isDead(zombie) {
+  
+  if (zombie.dead) {
+    return true;
+  }
+
+  if (zombie.health <= 0) {
+    return true;
+  }
+
+  return false;
+
+}
+````
+
+
+### 4. jQuery selectors
+
+#### 4.1 Does each jQuery selectors are abstracted?
+
+
+````javascript
+/**
+ * BAD
+ */
+function init() {
+  $('.title', $scope).find('span a').remove();
+}
+````
+
+````javascript
+/**
+ * GOOD
+ */
+function init() {
+  getTitleLinks().remove();
+}
+
+function getTitleLinks() {
+  return $('.title', $scope).find('span a');
+}
+````
+
+#### 4.2 Does each jQuery selectors are scoped?
+
+
+````javascript
+/**
+ * BAD
+ */
+function init() {
+  $('.title', $scope).find('span a').remove();
+}
+````
+
+````javascript
+/**
+ * GOOD
+ */
+function init() {
+  getTitleLinks().remove();
+}
+
+function getTitleLinks() {
+  return $('.title', $scope).find('span a');
+}
+````
+
+## 5. Functions
+
+#### 5.1 Does each function do one thing and only one thing and doesn't contain more than ~15 lines ?
 
 ````javascript
 /**
@@ -76,8 +299,7 @@ function setupCollapse() {
 }
 ```
 
-#### 1.2 Does each anonymous functions are abstracted ?
-
+#### 5.2 Does each anonymous functions are abstracted ?
 
 ````javascript
 /**
@@ -148,9 +370,7 @@ function onClickChocobo(e) {
 }
 ````
 
-#### 1.3 Does each function doesn't contain more than ~15 lines ?
-
-#### 1.4 Does each function name are descriptive enough ?
+#### 5.3 Does each function name are descriptive enough ?
 
 ````javascript
 /**
@@ -166,7 +386,7 @@ function noProduct($productId) {}
 function isProductExists($productId) {}
 ````
 
-#### 1.5 Does each function doesn't have more than 3 arguments ?
+#### 5.4 Does each function doesn't have more than 3 arguments ?
 
 
 ````javascript
@@ -187,227 +407,4 @@ function killUser(id, attributes) {}
  * Where attributes is an object
  * {name: "peter", level: 20, email: "peter@gmail.com", birthday: null}
  */
-````
-
-
-
-### 2. Comments
-
-#### 2.1 Are the comments written useful ? 
-
-
-````javascript
-/**
- * BAD
- */
-
-/**
- * Destroy the module
- */
-function destroy() {
-  showSubMenus();
-  removeIconMinusHeadings();
-  shutdownEventCollapse();
-  initialized = false;
-}
-````
-
-````javascript
-/**
- * GOOD
- */
-
-/**
- * Go back to clean state (before the module was injected)
- */
-function destroy() {
-  showSubMenus();
-  removeIconMinusHeadings();
-  shutdownEventCollapse();
-  initialized = false;
-}
-````
-
-#### 2.1 Does the module contains a global description comment ?
-
-````javascript
-/**
- * BAD
- * Browse Actions module
- */
-WEBLINC.registerModule('browseActions', (function () {}));
-````
-
-````javascript
-/**
- * GOOD
- * On browse products section (viewport mobile), this module
- * is in charge to open the drawer's filters.
- */
-WEBLINC.registerModule('browseActions', (function () {}));
-````
-
-### 3. Variables
-
-#### Descriptive Variables
-
-````javascript
-/**
- * BAD
- */
-var prodNb = 0;
-````
-
-
-````javascript
-/**
- * GOOD
- */
-var countProducts = 0;
-````
-
-
-#### No business logic in the variables
-
-````javascript
-/**
- * BAD
- */
-var $products = $scope.is('.pagination-results') ? $('.product-grid__cell', $scope) : $('.product-grid__cell', $('.view', $scope)),
-````
-
-````javascript
-/**
- * GOOD
- */
-var $products = getProducts();
-````
-
-### 4. Conditions
-
-#### Does each complex conditions are abstracted ?
-
-````javascript
-/**
- * BAD
- */
-function showFunnyPictureOnMobile() {
-  
-  // If it's on mobile
-  if (Modernizr.touch && $(window).width() < 768) {
-    $('#funny-picture').attr('src', 'funny-picture.jpg');
-  }
-
-}
-````
-
-````javascript
-/**
- * GOOD
- */
-function showFunnyPictureOnMobile() {
-  
-  if (isMobile()) {
-    $('#funny-picture').attr('src', 'funny-picture.jpg')
-  }
-
-}
-
-function isMobile() {
-  return Modernizr.touch && $(window).width() < 768;
-}
-````
-
-#### Does each conditions are defensive?
-
-````javascript
-/**
- * BAD
- */
-function isDead(zombie) {
-
-  if (!zombie.dead) {
-
-    if (zombie.health <= 0) {
-      return true;
-    } else {
-      return false;
-    }
-
-  } else {
-    return false;
-  }
-
-}
-````
-
-````javascript
-/**
- * GOOD
- */
-function isDead(zombie) {
-  
-  if (zombie.dead) {
-    return true;
-  }
-
-  if (zombie.health <= 0) {
-    return true;
-  }
-
-  return false;
-
-}
-````
-
-### 5. jQuery selectors
-
-#### Does each jQuery selectors are abstracted?
-
-
-````javascript
-/**
- * BAD
- */
-function init() {
-  $('.title', $scope).find('span a').remove();
-}
-````
-
-````javascript
-/**
- * GOOD
- */
-function init() {
-  getTitleLinks().remove();
-}
-
-function getTitleLinks() {
-  return $('.title', $scope).find('span a');
-}
-````
-
-#### Does each jQuery selectors are scoped?
-
-
-````javascript
-/**
- * BAD
- */
-function init() {
-  $('.title', $scope).find('span a').remove();
-}
-````
-
-````javascript
-/**
- * GOOD
- */
-function init() {
-  getTitleLinks().remove();
-}
-
-function getTitleLinks() {
-  return $('.title', $scope).find('span a');
-}
 ````
