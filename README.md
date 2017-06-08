@@ -1,5 +1,27 @@
 # Checklist JS review
 
+- [1. Comments](#fakerelixiraddress)
+  - [1.1 Are the comments written useful?](#)
+  - [1.2 Does the module contain a global description comment?](#)
+
+- [2. Variables](#fakerelixiraddress)
+  - [2.1 Do the variables descriptive enough?](#)
+  - [2.2 Do the variables contain business logic?](#)
+  
+- [3. Conditions](#fakerelixiraddress)
+  - [3.1 Is each complex condition abstracted?](#)
+  - [3.2 Is each condition defensive?](#)
+  
+- [4. jQuery Selectors](#fakerelixiraddress)
+  - [4.1 Is each jQuery selector abstracted?](#)
+  - [4.2 Is each jQuery selector scoped?](#)
+  
+- [5. Functions](#fakerelixiraddress)
+  - [5.1 Does each function do one thing and only one thing and doesn’t contain more than ~15 lines ?](#)
+  - [5.2 Is each anonymous function abstracted ?](#)
+  - [5.3 Is each function name descriptive enough ?](#)
+  - [5.4 Does each function have strictly less than 4 arguments?](#)
+
 ## 1. Comments
 
 #### 1.1 Are the comments written useful? 
