@@ -58,7 +58,7 @@ function destroy() {
 }
 ````
 
-#### 1.2 Does the module contain a global description comment?
+#### 1.2 Does the module contain a global description comment? [↑ Back top](#checklist-js-review)
 
 ````javascript
 /**
@@ -80,7 +80,7 @@ WEBLINC.registerModule('browseActions', (function () {}));
 
 ## 2. Variables
 
-#### 2.1 Do the variables descriptive enough?
+#### 2.1 Do the variables descriptive enough? [↑ Back top](#checklist-js-review)
 
 ````javascript
 /**
@@ -98,7 +98,7 @@ var countProducts = 0;
 ````
 
 
-#### 2.2 Do the variables contain business logic?
+#### 2.2 Do the variables contain business logic? [↑ Back top](#checklist-js-review)
 
 ````javascript
 /**
@@ -117,7 +117,7 @@ var $products = getProducts();
 
 ## 3. Conditions
 
-#### 3.1 Is each complex condition abstracted?
+#### 3.1 Is each complex condition abstracted? [↑ Back top](#checklist-js-review)
 
 ````javascript
 /**
@@ -150,7 +150,7 @@ function isMobile() {
 }
 ````
 
-#### 3.2 Is each condition defensive?
+#### 3.2 Is each condition defensive? [↑ Back top](#checklist-js-review)
 
 ````javascript
 /**
@@ -195,7 +195,7 @@ function isDead(zombie) {
 
 ## 4. jQuery selectors
 
-#### 4.1 Is each jQuery selector abstracted?
+#### 4.1 Is each jQuery selector abstracted? [↑ Back top](#checklist-js-review)
 
 
 ````javascript
@@ -220,7 +220,7 @@ function getTitleLinks() {
 }
 ````
 
-#### 4.2 Is each jQuery selector scoped?
+#### 4.2 Is each jQuery selector scoped? [↑ Back top](#checklist-js-review)
 
 ````javascript
 /**
@@ -242,7 +242,7 @@ function init() {
 
 ## 5. Functions
 
-#### 5.1 Does each function do one thing and only one thing and doesn't contain more than ~15 lines ?
+#### 5.1 Does each function do one thing and only one thing and doesn't contain more than ~15 lines ? [↑ Back top](#checklist-js-review)
 
 ````javascript
 /**
@@ -315,7 +315,7 @@ function setupCollapse() {
 }
 ```
 
-#### 5.2 Is each anonymous function abstracted ?
+#### 5.2 Is each anonymous function abstracted ? [↑ Back top](#checklist-js-review)
 
 ````javascript
 /**
@@ -386,7 +386,7 @@ function onClickChocobo(e) {
 }
 ````
 
-#### 5.3 Is each function name descriptive enough ?
+#### 5.3 Is each function name descriptive enough? [↑ Back top](#checklist-js-review)
 
 ````javascript
 /**
@@ -402,7 +402,7 @@ function noProduct($productId) {}
 function isProductExists($productId) {}
 ````
 
-#### 5.4 Does each function have strictly less than 4 arguments?
+#### 5.4 Does each function have strictly less than 4 arguments? [↑ Back top](#checklist-js-review)
 
 ````javascript
 /**
