@@ -17,9 +17,9 @@
   - [4.2 Is each jQuery selector scoped?](#42-is-each-jquery-selector-scoped--back-top)
   
 - [5. Functions](#5-functions)
-  - [5.1 Does each function do one thing and only one thing and doesn’t contain more than ~15 lines ?](#51-does-each-function-do-one-thing-and-only-one-thing-and-doesnt-contain-more-than-15-lines-)
-  - [5.2 Is each anonymous function abstracted ?](#52-is-each-anonymous-function-abstracted-)
-  - [5.3 Is each function name descriptive enough ?](#53-is-each-function-name-descriptive-enough-)
+  - [5.1 Does each function do one thing and only one thing and doesn’t contain more than ~15 lines ?](#51-does-each-function-do-one-thing-and-only-one-thing-and-doesnt-contain-more-than-15-lines---back-top)
+  - [5.2 Is each anonymous function abstracted ?](#52-is-each-anonymous-function-abstracted--back-top)
+  - [5.3 Is each function name descriptive enough ?](#53-is-each-function-name-descriptive-enough--back-top)
   - [5.4 Does each function have strictly less than 4 arguments?](#54-does-each-function-have-strictly-less-than-4-arguments--back-top)
 
 ## 1. Comments
