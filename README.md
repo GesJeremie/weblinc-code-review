@@ -1,14 +1,15 @@
 # Checklist JS review
 
 
-### Functions
+### 1. Functions
 
-#### 1. Does each function do one thing and only one thing ?
+#### 1.1 Does each function do one thing and only one thing ?
 
 ````javascript
-// Bad
-// This function is doing a way too much.
-
+/**
+ * BAD
+ * This function does too much
+ */
 function handleCheckboxChange(event) {
     productId = $(this).val();
     $compareFormInput = $('input[value="' + productId + '"]', $('form', $productCompare));
@@ -66,17 +67,22 @@ function handleCheckboxChange(event) {
 ````
 
 ``` javascript
-// Good
+/**
+ * GOOD
+ */
 function setupCollapse() {
   hideSubMenus();
   registerEventCollapse();
 }
 ```
 
-- Does each anonymous functions are abstracted ?
+#### 1.2 Does each anonymous functions are abstracted ?
+
 
 ````javascript
-// Bad
+/**
+ * BAD
+ */
 function getAdminUsers(users) {
   
   var admins = _.filter(users, function(user) {
@@ -90,7 +96,9 @@ function getAdminUsers(users) {
 ````
 
 ````javascript
-// Good
+/**
+ * GOOD
+ */
 function getAdminUsers(users) {
   
   var admins = _.filter(users, isAdmin);
@@ -105,7 +113,9 @@ function isAdmin(user) {
 ````
 
 ````javascript
-// Bad
+/**
+ * BAD
+ */
 function init() {
 
   $('.chocobo').on('click', function(e) {
@@ -120,8 +130,10 @@ function init() {
 }
 ````
 
-````
-// Good
+````javascript
+/**
+ * GOOD
+ */
 function init() {
   $('.chocobo').on('click', onClickChocobo);
 }
@@ -136,16 +148,66 @@ function onClickChocobo(e) {
 }
 ````
 
+#### 1.3 Does each function doesn't contain more than ~15 lines ?
 
-- Does each function don't contain more than ~15 lines ?
+#### 1.4 Does each function name are descriptive enough ?
 
-- Does each function name are descriptive enough ?
-    noProducts / hasNoProducts
+````javascript
+/**
+ * BAD
+ */
+function noProduct($productId) {}
+````
+
+````javascript
+/**
+ * GOOD
+ */
+function isProductExists($productId) {}
+````
+
+
+### 2. Comments
+
+#### 2.1 Are the comments written useful ? 
+
+
+````javascript
+/**
+ * BAD
+ */
+
+/**
+ * Destroy the module
+ */
+function destroy() {
+  showSubMenus();
+  removeIconMinusHeadings();
+  shutdownEventCollapse();
+  initialized = false;
+}
+````
+
+````javascript
+/**
+ * GOOD
+ */
+
+/**
+ * Go back to clean state (before the module was injected)
+ */
+function destroy() {
+  showSubMenus();
+  removeIconMinusHeadings();
+  shutdownEventCollapse();
+  initialized = false;
+}
+````
+
+
 
 - Does each complex conditions are abstracted ?
 - Does the module contains a global description comment 
-- Are the comments written useful ? 
-
 - No for loop
 - Only one level of indentation (max 2)
 - Descriptive Variables
