@@ -2,8 +2,7 @@
 
 ## 1. Comments
 
-#### 1.1 Are the comments written useful ? 
-
+#### 1.1 Are the comments written useful? 
 
 ````javascript
 /**
@@ -59,7 +58,7 @@ WEBLINC.registerModule('browseActions', (function () {}));
 
 ## 2. Variables
 
-#### 2.1 Descriptive Variables
+#### 2.1 Do the variables descriptive enough?
 
 ````javascript
 /**
@@ -77,7 +76,7 @@ var countProducts = 0;
 ````
 
 
-#### 2.2 No business logic in the variables
+#### 2.2 Do the variables contain business logic?
 
 ````javascript
 /**
@@ -96,7 +95,7 @@ var $products = getProducts();
 
 ## 3. Conditions
 
-#### 3.1 Does each complex conditions are abstracted ?
+#### 3.1 Is each complex condition abstracted?
 
 ````javascript
 /**
@@ -129,7 +128,7 @@ function isMobile() {
 }
 ````
 
-#### 3.2 Does each conditions are defensive?
+#### 3.2 Is each condition defensive?
 
 ````javascript
 /**
@@ -174,7 +173,7 @@ function isDead(zombie) {
 
 ## 4. jQuery selectors
 
-#### 4.1 Does each jQuery selectors are abstracted?
+#### 4.1 Is each jQuery selector abstracted?
 
 
 ````javascript
@@ -195,19 +194,18 @@ function init() {
 }
 
 function getTitleLinks() {
-  return $('.title', $scope).find('span a');
+    $('.title', $scope).find('span a').remove();
 }
 ````
 
-#### 4.2 Does each jQuery selectors are scoped?
-
+#### 4.2 Is each jQuery selector scoped?
 
 ````javascript
 /**
  * BAD
  */
 function init() {
-  $('.title', $scope).find('span a').remove();
+  $('.title').find('span a').remove();
 }
 ````
 
@@ -217,10 +215,6 @@ function init() {
  */
 function init() {
   getTitleLinks().remove();
-}
-
-function getTitleLinks() {
-  return $('.title', $scope).find('span a');
 }
 ````
 
@@ -299,7 +293,7 @@ function setupCollapse() {
 }
 ```
 
-#### 5.2 Does each anonymous functions are abstracted ?
+#### 5.2 Is each anonymous function abstracted ?
 
 ````javascript
 /**
@@ -370,7 +364,7 @@ function onClickChocobo(e) {
 }
 ````
 
-#### 5.3 Does each function name are descriptive enough ?
+#### 5.3 Is each function name descriptive enough ?
 
 ````javascript
 /**
@@ -386,8 +380,7 @@ function noProduct($productId) {}
 function isProductExists($productId) {}
 ````
 
-#### 5.4 Does each function doesn't have more than 3 arguments ?
-
+#### 5.4 Does each function have strictly less than 4 arguments?
 
 ````javascript
 /**
